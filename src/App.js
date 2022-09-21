@@ -1,25 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
 
+
+const devices = [
+
+  { name: "Leptop", price: 31000 },
+  { name: "Phone", price: 13000 },
+  { name: "Camera", price: 45000 },
+  { name: "Watch", price: 1000 },
+]
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        devices.map(device => <ShowDevice name={device.name} price={device.price}></ShowDevice>)
+
+      }
+
     </div>
   );
+}
+function ShowDevice(props) {
+  return (
+    <div className="container">
+      <h1>Device Name : {props.name}</h1>
+      <h1>Price : {props.price}</h1>
+    </div>
+  )
 }
 
 export default App;
